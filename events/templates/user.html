@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>User Dashboard</h2>
+</div>
+
+<div class="container">
+
+<h1>Welcome {{ request.user.username }}</h1>
+
+<div class="dashboard">
+
+<div class="dashboard-card">
+<h2>👤 Profile</h2>
+<a href="{% url 'profile' %}">Open</a>
+</div>
+
+<div class="dashboard-card">
+<h2>📅 Events</h2>
+<a href="{% url 'home' %}">View</a>
+</div>
+
+<div class="dashboard-card">
+<h2>🎟 My Events</h2>
+<a href="{% url 'myevents' %}">Open</a>
+</div>
+
+<div class="dashboard-card">
+<h2>🚪 Logout</h2>
+<a href="{% url 'logout' %}">Logout</a>
+</div>
+
+</div>
+
+<h2>My Registered Events</h2>
+
+{% for r in request.user.registration_set.all %}
+
+<div class="card">
+    <h3>{{ r.event.event_name }}</h3>
+    <p>{{ r.event.event_date }}</p>
+    <p>{{ r.event.venue }}</p>
+</div>
+
+{% empty %}
+
+<div class="card">
+    <p>No Events Registered Yet</p>
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

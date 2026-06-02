@@ -1,0 +1,13 @@
+<h2>My Registered Events</h2>
+
+{% if registrations %}
+    <ul>
+        {% for r in registrations %}
+            <li>
+                <strong>{{ r.event.event_name }}</strong> — {{ r.event.event_date }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No events registered yet.</p>
+{% endif %}

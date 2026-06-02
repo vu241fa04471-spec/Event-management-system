@@ -1,1 +1,54 @@
-<h1>Welcome to Event Management System</h1>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Management Portal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>🎉 Event Management Portal</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/register/">Register</a>
+        <a href="/login/">Login</a>
+        <a href="/user/">Dashboard</a>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>Welcome to Event Management Portal</h1>
+    <p>Register and participate in exciting events.</p>
+</div>
+
+<div class="container">
+
+<h2>Upcoming Events</h2>
+
+{% for event in events %}
+
+<div class="card">
+
+<h3>{{ event.event_name }}</h3>
+
+<p>{{ event.description }}</p>
+
+<p><b>Date:</b> {{ event.event_date }}</p>
+
+<p><b>Venue:</b> {{ event.venue }}</p>
+
+<a class="btn"
+href="{% url 'register_event' event.id %}">
+Register Event
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

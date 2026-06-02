@@ -1,0 +1,23 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="container">
+
+<div class="card">
+
+<h1>User Profile</h1>
+
+<p><b>Username:</b> {{ request.user.username }}</p>
+
+<p><b>Email:</b> {{ request.user.email }}</p>
+
+<p><b>Date Joined:</b> {{ request.user.date_joined }}</p>
+
+<a class="btn" href="/user/">
+Dashboard
+</a>
+
+</div>
+
+</div>

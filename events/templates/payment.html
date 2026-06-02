@@ -1,3 +1,29 @@
-<h1>Payment Successful</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment</title>
+</head>
+<body>
 
-<a href="/">Go Home</a>
+<h1>Event Payment</h1>
+
+<h2>{{ event.event_name }}</h2>
+
+<p>Date : {{ event.event_date }}</p>
+
+<p>Venue : {{ event.venue }}</p>
+
+<p>Amount : ₹500</p>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<button type="submit">
+Pay Now
+</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="container">
+
+<h1>Welcome {{ request.user.username }}</h1>
+
+<div class="dashboard">
+
+<div class="dashboard-card">
+<h2>👤 Profile</h2>
+<a href="/profile/">Open</a>
+</div>
+
+<div class="dashboard-card">
+<h2>📅 Events</h2>
+<a href="/">View</a>
+</div>
+
+<div class="dashboard-card">
+<h2>🎟 My Events</h2>
+<a href="/myevents/">Open</a>
+</div>
+
+<div class="dashboard-card">
+<h2>🚪 Logout</h2>
+<a href="/logout/">Logout</a>
+</div>
+
+</div>
+
+</div>
